@@ -15,8 +15,10 @@ public class Planet {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "color")
 	private String color;
 	

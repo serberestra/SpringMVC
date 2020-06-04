@@ -2,6 +2,7 @@ package com.example.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +21,8 @@ public class PlanetController {
 	
 	private PlanetRepository planetRepo;
 	
-	public PlanetController() {}
-	
 	@Autowired
-	public void setPlanetRepo(PlanetRepository planetRepo) {
+	public PlanetController(PlanetRepository planetRepo) {
 		this.planetRepo = planetRepo;
 	}
 	
@@ -33,7 +32,21 @@ public class PlanetController {
 	}
 	
 	@PostMapping("/create")
-	public @ResponseBody String addPlanet(@RequestBody Planet insertPlanet) {
+	public @ResponseBody String addPlanet(@RequestBody Planet insertPlanet, Errors error) {
+		
+//		Set<ConstraintViolation<Planet>> violations = validator.validate(insertPlanet);
+//		
+//		for(ConstraintViolation<Planet> violation: violations) {
+//			String propertyPath = violation.getPropertyPath().toString();
+//			String msn = violation.getMessage();
+//			result.addError(new FieldError("Planet", propertyPath,
+//						"Invalid "+ propertyPath + "(" + msn + ")"));
+//		}
+		
+//		if(error.hasErrors()) {
+//			return "Error";
+//		}
+		
 		planetRepo.insert(insertPlanet);
 		return "Success";
 	}
