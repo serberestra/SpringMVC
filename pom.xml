@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>5.2.4.RELEASE</version>
+			<version>5.3.18</version>
 		</dependency>
 		<!-- SPRING ORM, Provides ORM tools
 		This is NOT an ORM framework....it is a module of Spring that HAPPENS to puppet
